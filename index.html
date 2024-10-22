@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass {
+            background: rgba(53, 52, 52, 0.2);
+        }
+        .skill-tag {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--start-color), var(--end-color));
+            color: white;
+            cursor: pointer;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .floating-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 80px !important;
+                top: auto !important;
+            }
+            .page-title {
+                font-size: 1.2rem !important;
+            }
+        }
+
+        .skill-description {
+            color: rgba(var(--text-color-rgb), 0.8);
+        }
+    </style>
+</head>
+<body class="min-h-screen transition-colors duration-300">
+    <div id="app">
+        <!-- Top Bar -->
+        <div class="fixed top-0 left-0 right-0 h-20 glass z-40 flex items-center px-4">
+            <!-- Logo -->
+            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                A
+            </div>
+            
+            <!-- Page Title -->
+            <h1 class="page-title text-2xl font-bold ml-4 flex-grow text-center">🌟 个人开发者档案</h1>
+            
+            <!-- Theme Toggle -->
+            <button id="themeToggle" class="w-12 h-12 rounded-full glass floating-btn flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path class="sun hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    <path class="moon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container mx-auto px-4 py-20">
+            <div class="max-w-4xl mx-auto">
+                <!-- Profile Info -->
+                <div class="glass rounded-xl p-8 mb-8 shadow-lg">
+                    <h1 class="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">关于我</h1>
+                    <div class="text-lg leading-relaxed space-y-4">
+                        <p>你好！我是一名24岁的少年，来自中国内地一个不太发达省份的小县城。尽管年轻，但我对生活充满热爱，对知识充满渴望。</p>
+                        <p>我热虽然大学本科学的是法律，但也衷于探索玄学的奥秘🔮，练习太极拳来保持身心平衡☯️，同时也对计算机科学充满热情🖥️。虽然有时会感到些许抑郁😞，但我始终保持积极乐观的态度面对生活🔥🔥🔥。</p>
+                        <p>非常喜欢做各种各样的网站，同时不管什么网站，都想做"深色模式☀️🌙"。我是现代AI🤖的使用者，喜欢小动物，尤其是狗子和咪咪。我热爱旅行和接触新事物，这些经历让我的生活更加丰富多彩。</p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="glass rounded-xl p-8 mb-8 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">技能标签</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                        <div class="skill-tag p-4 rounded-lg text-center shadow-lg" style="--start-color: #FF6B6B; --end-color: #FF8E8E;">
+                            <span class="text-lg">太极拳</span>
+                        </div>
+                        <div class="skill-tag p-4 rounded-lg text-center shadow-lg" style="--start-color: #4ECDC4; --end-color: #45B7AF;">
+                            <span class="text-lg">玄学</span>
+                        </div>
+                        <div class="skill-tag p-4 rounded-lg text-center shadow-lg" style="--start-color: #96C3EB; --end-color: #7EA6E0;">
+                            <span class="text-lg">法学</span>
+                        </div>
+                        <div class="skill-tag p-4 rounded-lg text-center shadow-lg" style="--start-color: #FF69B4; --end-color: #FF1493;">
+                            <span class="text-lg">二次元</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-white-800 dark:text-white-200">
+                        我只为兴趣制作项目，做的东西在大佬看来可能是小打小闹，希望各位大佬能够不吝赐教。英语水平还在提高中，但这不会阻碍我追求梦想，我希望终有一天能开发出服务大众的软件或网页。
+                    </p>
+                </div>
+
+                <!-- Projects -->
+                <div class="space-y-6">
+                    <div class="project-card glass rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-3">🔮 道家小六壬起卦网站</h3>
+                        <p>机缘巧合下开始学习道家小六壬，同时发现网上几乎没有道家小六壬起卦的，要么页面太丑、要么功能太少、要么假冒道家小六壬，所以本着知识的应用实践，自己制作了一个。</p>
+                    </div>
+
+                    <div class="project-card glass rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-3">📝 个人博客</h3>
+                        <p>包含个人学习内容、经验心得、心情随笔、技巧总结、思维创新、随心设计等内容，几乎成了虚拟的个人载体。</p>
+                    </div>
+
+                    <div class="project-card glass rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-3">🔖 我的书签</h3>
+                        <p>我特别喜欢收藏，浏览器收藏条目大概有2000条，按照自己的分类标准进行分类，通过Pintree项目变成静态前端网页展示。</p>
+                    </div>
+
+                    <div class="project-card glass rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-3">🎁 投喂小窝</h3>
+                        <p>模拟优秀的收款、打赏网站，简化各种繁杂的步骤，最简化的静态个人接收打赏的渐变背景小站。</p>
+                    </div>
+
+                    <div class="project-card glass rounded-xl p-6 shadow-lg">
+                        <h3 class="text-xl font-bold mb-3">🎵 我的音乐</h3>
+                        <p>通过修改或增加歌单id、音乐播放平台，可以将不同音乐平台的歌单汇集在一个静态页面上，及点及播。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Buttons -->
+        <button id="searchBtn" class="fixed bottom-4 right-4 w-12 h-12 rounded-full glass floating-btn z-50 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </button>
+
+        <button id="topBtn" class="fixed bottom-20 right-4 w-12 h-12 rounded-full glass floating-btn z-50 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        const app = document.getElementById('app');
+        const themeToggle = document.getElementById('themeToggle');
+        const sun = themeToggle.querySelector('.sun');
+        const moon = themeToggle.querySelector('.moon');
+        const topBtn = document.getElementById('topBtn');
+        
+        // Theme Toggle
+        let darkMode = false;
+        function toggleTheme() {
+            darkMode = !darkMode;
+            if (darkMode) {
+                document.body.classList.add('dark');
+                document.body.style.backgroundColor = '#1a1a1a';
+                document.body.style.color = '#ffffff';
+                sun.classList.remove('hidden');
+                moon.classList.add('hidden');
+            } else {
+                document.body.classList.remove('dark');
+                document.body.style.backgroundColor = '#ffffff';
+                document.body.style.color = '#000000';
+                sun.classList.add('hidden');
+                moon.classList.remove('hidden');
+            }
+        }
+        themeToggle.addEventListener('click', toggleTheme);
+
+        // 初始化文字颜色变量
+        document.body.style.setProperty('--text-color', '#000000');
+        document.body.style.setProperty('--text-color-rgb', '0, 0, 0');
+
+        // Scroll to Top
+        topBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Search Button (模拟功能)
+        document.getElementById('searchBtn').addEventListener('click', () => {
+            alert('搜索功能开发中...');
+        });
+
+        // 技能标签点击效果
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    tag.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
